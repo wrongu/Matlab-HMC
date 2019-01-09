@@ -8,7 +8,7 @@ function [samples, accept] = hmcsample(varargin)
 %
 %My reference for Riemannian HMC is Girolami et al (2004). Comments citing [GCC04] are referring to
 %equations in this paper. It can be found here:
-%http://www.stat.columbia.edu/~cook/movabletype/mlm/RMHMC_MG_BC_SC_REV_08_04_10.pdf
+%https://pdfs.semanticscholar.org/16c5/06c5bb253f7528ddcc80c72673fabf584f32.pdf
 %
 %Standard HMC is enabled by default. Supplying a 'Metric' argument enables the Riemann version. All
 %function handles should accept and return column vectors where appropriate.
