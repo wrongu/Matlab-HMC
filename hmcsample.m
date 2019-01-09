@@ -79,7 +79,7 @@ end
         else
             G = args.mass;
         end
-        if nargout >= 2, Gi = inv(G); end
+        if nargout >= 2, Gi = G \ speye(d); end
         if nargout >= 3, cholG = chol(G); end
         if nargout >= 4
             if ~isempty(args.gradmetric)
