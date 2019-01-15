@@ -99,8 +99,7 @@ end
 %% Define Hamiltonian
 
     function H = Hamiltonian(x, p)
-        % The full hamiltonian, up to a constant (log 2pi). Note that values will change as Gi and
-        % rootG are changed outside the scope of this function.
+        % The full hamiltonian, up to a constant (log 2pi).
         G = metric(x);
         logdet_G = sum(log(diag(chol(G))));
         H = -args.logpdf(x) + 1/2*(logdet_G + p'*(G\p)); % [GCC04] equations (3) and (19)
@@ -150,7 +149,7 @@ for iSample=2:nTotalSamples
     x = samples(iSample-1, :)';
     % Draw new momentum value taking local geometry into account (move quickly in directions where
     % the metric defines changes as happening slowly and vice versa)
-    p = cholG * randn(d, 1);
+    p = cholG' * randn(d, 1);
     % For use in accept/reject, we need to know the log probability of this starting point
     prev_logpdf = -Hamiltonian(x, p);
     
